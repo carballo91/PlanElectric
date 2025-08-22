@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- ========================= HERO ========================= -->
+<section class="hero">
+  <div class="hero__content">
+    <h1>Residential Electricians Serving Dayton, OH</h1>
+    <p class="lead">Safe, code-compliant installs, panel upgrades, lighting, rewiring, and EV chargers. Trusted by homeowners across Dayton and the surrounding communities.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="/contact">Request a Free Quote</a>
+      <a class="btn btn--ghost" href="/services">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST BADGES ===================== -->
+<section class="badges section--slate section--compact">
+  <div class="badge">Licensed & Insured</div>
+  <div class="badge">Upfront, Honest Pricing</div>
+  <div class="badge">Local • Dayton, OH</div>
+</section>
+
+<!-- ======================== SERVICES ====================== -->
+<section class="section section--cream">
+  <header class="section__head">
+    <h2>How We Help Homeowners</h2>
+    <p>From small fixes to whole-home upgrades, we deliver safe work that looks great and lasts.</p>
+  </header>
+
+  <div class="grid services">
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/panel.jpg') }}" alt="Upgraded service panel with labeled circuits">
+      <h3>Panel & Service Upgrades</h3>
+      <p>Replace outdated panels, add capacity, and bring your service up to modern code and safety standards.</p>
+      <ul>
+        <li>100–200+ amp upgrades</li>
+        <li>Surge protection</li>
+        <li>Meter/base replacements</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/lighting.jpg') }}" alt="Clean recessed LED lighting across a ceiling">
+      <h3>Lighting & Fixtures</h3>
+      <p>Brighten your space with modern, efficient lighting—indoors and out—installed neatly and safely.</p>
+      <ul>
+        <li>Recessed LEDs</li>
+        <li>Exterior & security lighting</li>
+        <li>Ceiling fans & smart switches</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/ev.jpeg') }}" alt="Level 2 EV charger mounted on a garage wall">
+      <h3>EV Charger Installs</h3>
+      <p>Level-2 home charging done right—correct circuit sizing, permits, and clean routing for everyday reliability.</p>
+      <ul>
+        <li>Dedicated circuits</li>
+        <li>NEMA 14-50 & hardwired</li>
+        <li>Panel load calculations</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/outlet.jpg') }}" alt="Neatly routed copper wiring bundles">
+      <h3>Rewiring & Safety</h3>
+      <p>Address aging wiring, add outlets, and resolve tripping breakers with clean, code-compliant solutions.</p>
+      <ul>
+        <li>AFCI/GFCI protection</li>
+        <li>Outlet & circuit additions</li>
+        <li>Knob-and-tube replacement</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ======================== SERVICE AREA ================== -->
+<section class="strip strip--alt strip--mint">
+  <div class="strip__content">
+    <h2>Proudly Serving Dayton & Nearby Communities</h2>
+    <p>We routinely work in Centerville, Kettering, Beavercreek, Huber Heights, Fairborn, and more. Not sure if we cover your area? <a href="/contact">Ask us</a>—we’re happy to help.</p>
+  </div>
+</section>
+
+<!-- ========================== FAQ ========================= -->
+<section class="section section--glow section--separated">
+  <header class="section__head">
+    <h2>Common Questions</h2>
+  </header>
+  <details class="faq"><summary>Are you licensed and insured?</summary><p>Yes. We carry full licensing and insurance for residential electrical work in Ohio.</p></details>
+  <details class="faq"><summary>Do you pull permits?</summary><p>We handle permitting and inspections where required and coordinate scheduling around you.</p></details>
+  <details class="faq"><summary>Can you provide an estimate online?</summary><p>We can ballpark simple jobs via photos and details. For larger work, we’ll visit your home for a firm quote.</p></details>
+</section>
+
+<!-- ===================== FINAL CALL TO ACTION ============== -->
+<section class="strip strip--gold">
+  <div class="strip__content">
+    <h2>Ready to Power Up Your Home?</h2>
+    <p>Tell us what you need and we’ll recommend the safest, most cost-effective path forward.</p>
+    <a class="btn btn--primary" href="/contact">Get Your Free Quote</a>
+  </div>
+</section>
+
+<script>
+  // const swiper = new Swiper('.swiper', {
+  //   // Optional parameters
+  //   direction: 'horizontal',
+  //   loop: true,
+
+  //   // If we need pagination
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //   },
+
+  //   // Navigation arrows
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+
+  //   // And if we need scrollbar
+  //   scrollbar: {
+  //     el: '.swiper-scrollbar',
+  //   },
+  // });
+//   const swiper = new Swiper('.swiper', {
+//             loop: true,
+//             autoplay: {
+//                 delay: 4000,
+//             },
+//             navigation: {
+//                 nextEl: '.swiper-button-next',
+//                 prevEl: '.swiper-button-prev'
+//             },
+//             pagination: {
+//                 el: '.swiper-pagination',
+//                 clickable: true
+//             },
+//             effect: 'fade'
+//         });
+// </script>
+
+{% endblock %}

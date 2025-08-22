@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- ========================= HERO ========================= -->
+<section class="hero">
+  <div class="hero__content">
+    <h1>About Plan Electric LLC</h1>
+    <p class="lead">Reliable, code-compliant residential electrical work for Dayton, OH and surrounding communities—delivered with clear communication, clean workmanship, and honest pricing.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="/contact">Request a Free Quote</a>
+      <a class="btn btn--ghost" href="/services">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== COMPANY STORY ==================== -->
+<section class="section section--slate">
+  <header class="section__head">
+    <h2>Our Story</h2>
+    <p>Built in Dayton, built for Dayton. We’re a neighborhood-focused electrical contractor committed to safe, long-lasting solutions for local homeowners.</p>
+  </header>
+
+  <div class="grid services">
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/panel.jpg') }}" alt="Neatly labeled modern service panel">
+      <h3>Locally Owned</h3>
+      <p>We started with small service calls and upgrades for friends and neighbors—growing steadily through word of mouth and consistent quality.</p>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/about_tools.jpg') }}" alt="Organized electrical tools and materials">
+      <h3>Standards First</h3>
+      <p>Every job follows NEC code and manufacturer specs. We plan load, size circuits correctly, and pull permits where required.</p>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/electrician.jpg') }}" alt="Electrician arriving with tools to a clean, organized jobsite inside a fitness facility">
+      <h3>Prepared & On Time</h3>
+      <p>We arrive with the right materials, protect your home, and work clean—so projects finish on time and look professional.</p>
+    </article>
+  </div>
+</section>
+
+<!-- =================== VALUES & DIFFERENTIATORS ============= -->
+<section class="section section--cream">
+  <header class="section__head">
+    <h2>What We Stand For</h2>
+    <p>Clear expectations, tidy work areas, and safety at every step—so you feel confident from the first call to the final inspection.</p>
+  </header>
+
+  <div class="badges section--compact">
+    <div class="badge">Code-Compliant Installations</div>
+    <div class="badge">Transparent Pricing</div>
+    <div class="badge">Neat & Labeled Panels</div>
+    <div class="badge">Permits & Inspections</div>
+  </div>
+
+  <div class="grid services">
+    <article class="card">
+      <h3>Safety & Compliance</h3>
+      <p>We perform proper load calculations, use AFCI/GFCI protection where required, and follow best practices for wire management, bonding, and grounding.</p>
+      <ul>
+        <li>NEC-aligned planning & routing</li>
+        <li>Correct conductor sizes & breakers</li>
+        <li>Proper bonding/grounding methods</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>Communication</h3>
+      <p>No surprises. We walk you through options, share photos of progress, and document panel labeling so service is easy to manage later.</p>
+      <ul>
+        <li>Upfront estimates & timelines</li>
+        <li>Photo updates & clean close-outs</li>
+        <li>Clear labeling & leave-behind notes</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>Respect for Your Home</h3>
+      <p>Protective runners, dust control, and careful routing keep spaces clean. We aim for minimal downtime and tidy finishes.</p>
+      <ul>
+        <li>Floor & surface protection</li>
+        <li>Clean work area daily</li>
+        <li>Thoughtful circuit routing</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ================== LICENSES & SERVICE AREA ================= -->
+<section class="strip strip--alt strip--mint">
+  <div class="strip__content">
+    <h2>Licensed • Insured • Local</h2>
+    <p>Serving Dayton, Centerville, Kettering, Beavercreek, Huber Heights, Fairborn, and nearby communities. Not sure if you’re in range? <a href="/contact">Ask us</a>—we’re happy to help.</p>
+  </div>
+</section>
+
+<!-- ======================== OUR PROCESS ===================== -->
+<section class="section section--glow section--separated">
+  <header class="section__head">
+    <h2>How We Work</h2>
+    <p>A simple, predictable process—so you know what’s happening and why.</p>
+  </header>
+
+  <div class="grid services">
+    <article class="card">
+      <h3>1) Consult & Scope</h3>
+      <p>Share your goals and any photos. We discuss options, code needs, and ballpark pricing. For bigger jobs, we visit to finalize scope.</p>
+    </article>
+    <article class="card">
+      <h3>2) Proposal & Scheduling</h3>
+      <p>Receive a clear proposal with scope, pricing, and timeline. We coordinate around your schedule and handle permits where required.</p>
+    </article>
+    <article class="card">
+      <h3>3) Professional Install</h3>
+      <p>We protect surfaces, complete work to code, label circuits, and keep areas clean. You’ll see progress and know what’s next.</p>
+    </article>
+    <article class="card">
+      <h3>4) Final Check & Wrap-Up</h3>
+      <p>We test everything, walk you through results, and provide any documentation needed for inspections or future service.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== CALL TO ACTION ===================== -->
+<section class="strip strip--gold">
+  <div class="strip__content">
+    <h2>Ready to Get Started?</h2>
+    <p>Tell us what you need—panel upgrades, lighting, EV chargers, or wiring—and we’ll recommend the safest, most cost-effective approach.</p>
+    <a class="btn btn--primary" href="/contact">Request a Free Quote</a>
+  </div>
+</section>
+
+{% endblock %}

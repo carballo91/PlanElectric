@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>New Contact Request</h2>
+    <p><strong>Name:</strong> {{ form.name.data }}</p>
+    <p><strong>Email:</strong> {{ form.email.data }}</p>
+    <p><strong>Phone:</strong> {{ form.phone.data }}</p>
+    <p><strong>Service Type:</strong> {{ form.service_type.data }}</p>
+    <p><strong>ZIP:</strong> {{ form.zip.data }}</p>
+    <p><strong>Preferred Date:</strong> {{ form.preferred_date.data }}</p>
+    <p><strong>Message:</strong></p>
+    <p>{{ form.message.data | replace('\n', '<br>') | safe }}</p>
+  </body>
+</html>

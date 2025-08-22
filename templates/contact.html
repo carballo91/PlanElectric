@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- ========================= HERO ========================= -->
+<section class="hero hero--contact">
+  <div class="hero__content">
+    <h1>Contact Plan Electric LLC</h1>
+    <p class="lead">Tell us about your project — we’ll follow up with a clear estimate, timeline, and next steps.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="tel:+19375551234">Call (870) 623-6434</a>
+      <a class="btn btn--ghost" href="mailto:hello@planelectricllc.com">Email Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CONTACT FORM ===================== -->
+<section class="quote-section" id="quote-section">
+  <header class="quote-header">
+    <h2>Request a Free Quote</h2>
+    <p>Tell us about your project and we’ll follow up shortly. For faster estimates, feel free to attach photos of your panel, fixtures, or job site.</p>
+  </header>
+
+  <form id="quote-form" method="POST"  class="quote-form" novalidate>
+    {{ form.hidden_tag() }}
+
+    <div class="form-grid">
+      <!-- Full Name -->
+      <div>
+        {{ form.name.label }}
+        {{ form.name(class="form-control") }}
+        {% for error in form.name.errors %}
+          <small class="form-error">{{ error }}</small>
+        {% endfor %}
+      </div>
+
+      <!-- Email -->
+      <div>
+        {{ form.email.label }}
+        {{ form.email(class="form-control") }}
+        {% for error in form.email.errors %}
+          <small class="form-error">{{ error }}</small>
+        {% endfor %}
+      </div>
+
+      <!-- Phone -->
+      <div>
+        {{ form.phone.label }}
+        {{ form.phone(class="form-control") }}
+        {% for error in form.phone.errors %}
+          <small class="form-error">{{ error }}</small>
+        {% endfor %}
+      </div>
+
+      <!-- Service Type -->
+      <div>
+        {{ form.service_type.label }}
+        {{ form.service_type(class="form-control") }}
+        {% for error in form.service_type.errors %}
+          <small class="form-error">{{ error }}</small>
+        {% endfor %}
+      </div>
+
+      <!-- ZIP -->
+      <div>
+        {{ form.zip.label }}
+        {{ form.zip(class="form-control") }}
+        {% for error in form.zip.errors %}
+          <small class="form-error">{{ error }}</small>
+        {% endfor %}
+      </div>
+
+      <!-- Preferred Date -->
+      <div>
+        {{ form.preferred_date.label }}
+        {{ form.preferred_date(class="form-control") }}
+        {% for error in form.preferred_date.errors %}
+          <small class="form-error">{{ error }}</small>
+        {% endfor %}
+      </div>
+
+      <!-- Message -->
+      <div class="full">
+        {{ form.message.label }}
+        {{ form.message(class="form-control") }}
+        {% for error in form.message.errors %}
+          <small class="form-error">{{ error }}</small>
+        {% endfor %}
+      </div>
+      
+      <!-- Turnstile Widget -->
+      <div class="cf-turnstile"
+          data-sitekey="0x4AAAAAABsLDDkmXnx1DGiA"
+          data-callback="onTurnstileSuccess">
+      </div>
+
+      <!-- Hidden WTForms field that stores the token -->
+      {{ form.turnstile_token(id="turnstile_token") }}
+      {% for error in form.turnstile_token.errors %}
+          <small class="form-error">{{ error }}</small>
+      {% endfor %}
+
+    </div>
+    
+
+    <button type="submit" class="btn btn--primary" id="submitBtn" disabled style="pointer-events: none; opacity: 0.6;">Send Request</button>
+  </form>
+</section>
+
+
+
+<!-- ===================== QUICK CONTACT ==================== -->
+<section class="section section--slate section--compact contact-cards">
+  <header class="section__head">
+    <h2>We’re Here to Help</h2>
+    <p>Licensed & insured • Residential specialists serving Dayton & surrounding communities</p>
+  </header>
+
+  <div class="card-grid contact-info">
+    <article class="card">
+      <h3>Hours</h3>
+      <p>Mon–Fri: 8:00 AM – 5:00 PM<br>Sat: Closed<br>Sun: Closed</p>
+    </article>
+    <article class="card">
+      <h3>Call or Email</h3>
+      <p><a href="tel:+19375551234">(870) 623-6434</a><br>
+         <a href="mailto:hello@planelectricllc.com">planelectricllc@gmail.com</a></p>
+    </article>
+    <article class="card">
+      <h3>Service Area</h3>
+      <p>Dayton • Centerville • Kettering • Beavercreek • Huber Heights • Fairborn</p>
+    </article>
+  </div>
+</section>
+
+<!-- =================== MAP / IMAGE STRIP =================== -->
+<section class="strip strip--alt strip--slate">
+  <div class="strip__content">
+    <h2>Serving Dayton & Nearby Communities</h2>
+    <p>If you’re close to Dayton, we likely serve your area. Not sure? <a href="/contact">Ask us</a>—we’ll confirm.</p>
+  </div>
+</section>
+
+
+
+<style>
+.quote-section {
+  max-width: 750px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #f7f4ef;
+  border-radius: 8px;
+}
+
+.quote-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.quote-form { width: 100%; }
+
+.form-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.form-grid .full {
+  grid-column: 1 / -1;
+}
+
+.quote-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  width: 100%;
+  appearance: none;
+  padding: 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.95rem;
+}
+
+.quote-form textarea {
+  resize: vertical;
+}
+
+.hp-field {
+  display: none;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn--primary {
+  display: block;
+  padding: 0.75rem 2rem;
+  background: #21527d;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background .3s;
+}
+
+.btn--primary:hover {
+  background: #173a58;
+}
+
+.form-note {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.form-error {
+  color: #d9534f;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.hero__ctas--stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+</style>
+<script>
+  function onTurnstileSuccess(token) {
+      document.getElementById('turnstile_token').value = token;
+       // Fully enable button
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = false;
+      btn.style.pointerEvents = 'auto';
+      btn.style.opacity = 1;
+  }
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+{% endblock %}

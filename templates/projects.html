@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="projects">
+  <h2 class="section-title">Recent Projects</h2>
+
+  <div class="project-grid">
+    <article class="project-card">
+      <img src="{{ url_for('static', filename='images/project1.jpg') }}"
+           alt="Pendant lighting installation with exposed wood beams and green accent walls in a modern interior"
+           class="project-image">
+      <div class="project-details">
+        <h3>Interior Lighting – Dayton, OH</h3>
+        <p>High-end interior lighting installation featuring suspended pendants, custom wood beam accents, and clean wiring for a modern design.</p>
+      </div>
+    </article>
+    <article class="project-card">
+      <img src="{{ url_for('static', filename='images/project2.jpg') }}"
+           alt="Electrician installing large ceiling fan in fitness center using ladder and tools"
+           class="project-image">
+      <div class="project-details">
+        <h3>Fitness Center Ceiling Fan Retrofit</h3>
+        <p>Rough-in and fixture installation of oversized HVLS ceiling fans and gym lighting, completed safely while coordinating with other trades on-site.</p>
+      </div>
+    </article>
+    <article class="project-card">
+      <img src="{{ url_for('static', filename='images/project3.jpg') }}"
+           alt="Progress photo of fitness center with treadmills and ceiling fan during electrical rough-in"
+           class="project-image">
+      <div class="project-details">
+        <h3>Gym Wiring & Equipment Power Drops</h3>
+        <p>Electrical scope included wiring for exercise equipment, overhead fans, and LED lighting — delivered with minimal disruption to client operations.</p>
+      </div>
+    </article>
+    <article class="project-card">
+      <img src="{{ url_for('static', filename='images/project4.jpg') }}"
+           alt="Electrician walking through newly wired fitness facility with linear LED lighting"
+           class="project-image">
+      <div class="project-details">
+        <h3>Fitness Facility Linear LED Installation</h3>
+        <p>Final walk-through of a fitness facility project showcasing sleek recessed linear LEDs and clean, code-compliant installation throughout.</p>
+      </div>
+    </article>
+    <article class="project-card">
+      <img src="{{ url_for('static', filename='images/project5.jpg') }}"
+           alt="Close-up of Siemens electrical meter bank and service wiring during installation"
+           class="project-image">
+      <div class="project-details">
+        <h3>Utility Service Gear & Meter Bank</h3>
+        <p>Precision installation of multi-gang meter service equipment, completed to NEC standards with neatly routed conductors and secure terminations.</p>
+      </div>
+    </article>
+    <article class="project-card">
+      <img src="{{ url_for('static', filename='images/project6.jpeg') }}"
+           alt="Exterior lighting illuminating new multi-unit residential building at night"
+           class="project-image">
+      <div class="project-details">
+        <h3>Multi-Family Exterior Lighting – Centerville, OH</h3>
+        <p>Exterior lighting package for a new multi-family development — providing site safety, curb appeal, and energy-efficient illumination.</p>
+      </div>
+    </article>
+    
+
+    <!-- Add more project-card blocks here as needed -->
+
+  </div>
+</section>
+
+<style>
+.projects {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.project-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.project-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  transition: box-shadow .3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-details {
+  padding: 1rem;
+}
+
+.project-details h3 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+  font-size: 1.1rem;
+}
+
+.project-details p {
+  margin: 0;
+  font-size: .95rem;
+  line-height: 1.4;
+}
+</style>
+{% endblock %}

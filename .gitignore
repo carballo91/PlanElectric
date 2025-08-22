@@ -1,0 +1,55 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.log
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# ---- Flask / Web ----
+instance/
+*.db
+*.sqlite3
+*.sqlite
+*.bak
+
+# Static cache
+static/*.map
+static/css/*.map
+static/js/*.map
+
+# ---- Environment & Secrets ----
+*.env
+.env.*
+*.ini
+config.cfg
+secrets.json
+
+# ---- IDE / Editors ----
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+
+# ---- Testing ----
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/

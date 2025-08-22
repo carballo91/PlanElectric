@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- ========================= HERO ========================= -->
+<section class="hero">
+  <div class="hero__content">
+    <h1>Electrical Services for Dayton Area Homes</h1>
+    <p class="lead">From quick repairs to complete home electrical upgrades, Plan Electric LLC provides safe, code-compliant work with clear communication and clean results.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="/contact">Request a Free Quote</a>
+      <a class="btn btn--ghost" href="/projects">View Our Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== OVERVIEW ======================== -->
+<section class="section section--slate">
+  <header class="section__head">
+    <h2>What We Do</h2>
+    <p>We handle everything from small fixes to full rewiring and service upgrades—always with the goal of making your home safer, more functional, and ready for the future.</p>
+  </header>
+</section>
+
+<!-- ====================== SERVICES GRID ==================== -->
+<section class="section section--cream">
+  <div class="grid services">
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/panel.jpg') }}" alt="New service panel with clearly labeled breakers">
+      <h3>Panel & Service Upgrades</h3>
+      <p>Increase capacity, replace outdated panels, and ensure your service meets today’s safety standards.</p>
+      <ul>
+        <li>100–200+ amp upgrades</li>
+        <li>Surge protection</li>
+        <li>Meter & base replacement</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/lighting.jpg') }}" alt="Modern LED lighting installed in a kitchen ceiling">
+      <h3>Lighting & Fixtures</h3>
+      <p>Efficient, attractive lighting indoors and out—installed neatly and to code.</p>
+      <ul>
+        <li>Recessed LEDs</li>
+        <li>Ceiling fans & chandeliers</li>
+        <li>Outdoor & security lights</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/ev.jpeg') }}" alt="Level 2 EV charger installed in garage">
+      <h3>EV Charger Installation</h3>
+      <p>Safe, dependable charging solutions for your electric vehicle at home.</p>
+      <ul>
+        <li>Level 2 chargers</li>
+        <li>NEMA 14-50 outlets</li>
+        <li>Load calculations & permits</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/outlet.jpg') }}" alt="GFCI outlet">
+      <h3>Rewiring & Safety</h3>
+      <p>Update old wiring, add circuits, and resolve breaker issues.</p>
+      <ul>
+        <li>AFCI/GFCI protection</li>
+        <li>Outlet & switch installs</li>
+        <li>Knob-and-tube replacement</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/about_tools.jpg') }}" alt="Electrician testing voltage with a multimeter">
+      <h3>Troubleshooting & Repairs</h3>
+      <p>Quick, accurate diagnosis of electrical problems with lasting solutions.</p>
+      <ul>
+        <li>Breaker trips & outages</li>
+        <li>Lighting flicker fixes</li>
+        <li>Outlet repair & replacement</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <img src="{{ url_for('static', filename='images/service_upgrades.jpg') }}" alt="Smart thermostat and upgraded electrical control">
+      <h3>Home Electrical Upgrades</h3>
+      <p>Modernize your home’s electrical system for comfort and efficiency.</p>
+      <ul>
+        <li>Smart home devices</li>
+        <li>Dedicated appliance circuits</li>
+        <li>Energy-efficient retrofits</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= WHY CHOOSE US =================== -->
+<section class="strip strip--alt strip--mint">
+  <div class="strip__content">
+    <h2>Why Homeowners Choose Plan Electric</h2>
+    <p>We show up on time, work clean, follow code, and make sure you understand exactly what’s been done. No shortcuts—just safe, reliable results.</p>
+  </div>
+</section>
+
+<!-- ======================= PROCESS ========================= -->
+<section class="section section--glow section--separated">
+  <header class="section__head">
+    <h2>Our Service Process</h2>
+    <p>Every project follows the same simple, predictable steps so you know exactly what to expect.</p>
+  </header>
+
+  <div class="grid services">
+    <article class="card">
+      <h3>1) Consultation</h3>
+      <p>We listen to your needs, inspect if needed, and discuss options that fit your budget and timeline.</p>
+    </article>
+    <article class="card">
+      <h3>2) Proposal</h3>
+      <p>You get a clear written estimate with no hidden costs, plus a timeline for completion.</p>
+    </article>
+    <article class="card">
+      <h3>3) Installation</h3>
+      <p>Work is completed neatly, to code, and with your safety as the top priority.</p>
+    </article>
+    <article class="card">
+      <h3>4) Final Walkthrough</h3>
+      <p>We test all work, review everything with you, and leave your home clean and ready to use.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== CTA =============================== -->
+<section class="strip strip--gold">
+  <div class="strip__content">
+    <h2>Need Electrical Work Done Right?</h2>
+    <p>From panel upgrades to lighting makeovers, we’re ready to help. Let’s get your project started today.</p>
+    <a class="btn btn--primary" href="/contact">Request a Free Quote</a>
+  </div>
+</section>
+
+{% endblock %}

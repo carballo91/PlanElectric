@@ -1,0 +1,243 @@
+/* =========================================================
+   Plan Electric LLC — Site Styles (no frameworks)
+   Colors: Navy #1a1a2e | Gold #f9c46b | Ink #222 | Light #f8f8fa
+   ========================================================= */
+
+/* Theme */
+:root{
+  --ink:#222; --ink-weak:#444; --muted:#666; --border:#e6e6e6;
+  --bg:#f8f8fa; --card:#fff; --navy:#1a1a2e; --gold:#f9c46b; --gold-strong:#f4a300;
+  --slate:#eef1f6; --cream:#fff8ea; --mint:#f0faf6;
+  --radius:14px; --shadow:0 10px 24px rgba(0,0,0,.08); --w:1100px;
+}
+
+/* Reset-ish */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* Base typography */
+body{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+  color:var(--ink); background:var(--bg); line-height:1.6;
+}
+h1,h2,h3{line-height:1.25;margin:0 0 .5rem}
+.lead{font-size:1.1rem;line-height:1.8;color:var(--card)}
+
+/* ====== HEADER / NAV (scoped) ====== */
+/* Add class="site-header" to the top header in base.html */
+.site-header{ background:var(--navy); color:#fff; padding:1rem; text-align:center; position: sticky; top: 0; z-index: 1000;}
+.site-header .logo{max-height:64px;}
+.site-header nav{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.site-header nav a{color:var(--gold); padding:.35rem .5rem; border-radius:8px}
+.site-header nav a:hover,.site-header nav a:focus{background-color: var(--gold);outline:2px solid transparent;color: var(--ink) !important;}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logo img {
+  max-height: 50px;
+  /* margin-right: 1rem; */
+}
+
+.site-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--gold);
+}
+
+.active {
+  background-color: var(--gold);
+  color: var(--ink) !important;
+}
+
+/* Main wrapper */
+main{ 
+  background:#fff; 
+  /* max-width:var(--w);  */
+  /* margin:1.25rem auto; */
+  box-shadow:var(--shadow); 
+  /* border-radius:var(--radius);  */
+  overflow:hidden; }
+
+/* Buttons */
+.btn{display:inline-block;padding:.9rem 1.15rem;border-radius:12px;font-weight:700;transition:transform .08s ease,background .15s ease,color .15s ease}
+.btn:active{transform:translateY(1px)}
+.btn--primary{background:var(--gold);color:var(--navy)}
+.btn--primary:hover,.btn--primary:focus{background:var(--gold-strong)}
+.btn--ghost{border:2px solid var(--gold);color:var(--gold)}
+.btn--ghost:hover,.btn--ghost:focus{background:rgba(249,196,107,.15)}
+
+/* Sections / utilities */
+.section{ 
+  background:#fff; 
+  color:#222; 
+  padding:3rem 1.5rem; 
+  /* max-width:var(--w);  */
+  margin:0 auto; }
+.section__head, .section_head{ max-width:760px; margin:0 auto 2rem; text-align:center; color:#222; }
+.section__head h2, .section_head h2{color:#111}
+.section__head p,  .section_head p {color:#333}
+
+.badges{ 
+  display:grid; 
+  gap:.75rem; 
+  grid-template-columns:repeat(auto-fit,minmax(180px,265px));
+  justify-content: center;
+  /* max-width:var(--w); 
+  margin:-.75rem auto 2rem;  */
+  padding:0 1.5rem; }
+.badge{ background:#fff; border:1px solid var(--border); border-radius:12px; padding:.8rem 1rem; text-align:center; }
+
+/* Alternating section backgrounds / variants */
+.section--slate{ background:var(--slate); }
+.section--cream{ background:var(--cream); }
+.section--mint { background:var(--mint); }
+.section--compact{ padding-top:2.25rem; padding-bottom:2.25rem; }
+.section--separated{ border-top:1px solid var(--border); }
+.section--glow{ background:linear-gradient(180deg,#fff,#f9f9fb); }
+
+/* ====== HERO ====== */
+/* Place a people-free hero image at: static/images/hero-house.jpg */
+.hero{
+  position:relative; isolation:isolate; overflow:hidden;
+  padding:5rem 1.25rem; text-align:center; color:#fff;
+}
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:url("/static/images/project6slider.jpg") center/cover no-repeat;
+  filter:brightness(.45);
+}
+.hero__content{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.hero__ctas{display:flex;gap:1rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap}
+
+/* ====== SLIDER ====== */
+.slider{width:100%;max-width:var(--w);margin:2rem auto;border-radius:var(--radius);overflow:hidden}
+.slides{display:flex;width:300%;animation:slide 15s infinite}
+.slides img{width:100%;height:440px;object-fit:cover;flex-shrink:0}
+@keyframes slide{
+  0%{transform:translateX(0)}
+  33%{transform:translateX(-100%)}
+  66%{transform:translateX(-200%)}
+  100%{transform:translateX(0)}
+}
+
+/* ====== SERVICES GRID ====== */
+.grid.services{
+  display:grid;
+  gap:1.25rem;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  margin: 0 auto;
+  max-width: var(--w);
+}
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  overflow:hidden; display:flex; flex-direction:column;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.card:hover{ transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,.08); border-color:#ddd; }
+.card img{height:180px;object-fit:cover}
+.card h3{margin:1rem 1rem .35rem}
+.card p,.card ul{margin:0 1rem 1rem}
+.card ul{padding-left:1.1rem}
+
+/* ====== STRIPS (dark/light bands) ====== */
+.strip { background: var(--navy); }
+.strip--alt { background: var(--bg); color: var(--ink); }
+.strip__content{max-width:var(--w); margin:0 auto; padding:2.5rem 1.5rem; text-align:center}
+
+/* Light text ONLY on dark strips */
+.strip:not(.strip--alt) { color: #fff; }
+.strip:not(.strip--alt) h1,
+.strip:not(.strip--alt) h2,
+.strip:not(.strip--alt) h3,
+.strip:not(.strip--alt) p,
+.strip:not(.strip--alt) li,
+.strip:not(.strip--alt) a { color: #fff; }
+.strip:not(.strip--alt) a { color: var(--gold); }
+
+/* Ensure dark text on light strip variant */
+.strip--alt h1, .strip--alt h2, .strip--alt h3,
+.strip--alt p, .strip--alt li, .strip--alt a,
+.strip--alt .section__head, .strip--alt .section_head,
+.strip--alt .section__head h2, .strip--alt .section_head h2,
+.strip--alt .section__head p, .strip--alt .section_head p { color: var(--ink); }
+
+/* Extra strip color variants */
+.strip--gold{
+  background: linear-gradient(135deg, #1a1a1a, #333333);
+  color:#1a1a2e;
+}
+.strip--slate{ background:var(--slate); color:var(--ink); }
+.strip--mint{ background:var(--mint); color:var(--ink); }
+.strip--gold a{ color:#1a1a2e !important; font-weight:700; }
+
+/* ====== FAQ ====== */
+.faq{
+  max-width:900px; margin:.6rem auto; background:#fff;
+  border:1px solid var(--border); border-radius:12px; padding:.8rem 1rem;
+}
+.faq summary{cursor:pointer;font-weight:600}
+.faq p{margin:.5rem 0 0}
+
+/* ====== CTA ====== */
+.cta{padding:3rem 1.5rem;text-align:center;background:linear-gradient(180deg,#fff,#f9f9fb)}
+.cta h2{margin-bottom:.3rem}
+.cta p{margin:.25rem auto 1rem;max-width:700px}
+
+.contact-info {
+  max-width: var(--w);
+  margin: 0 auto;
+}
+
+/* Footer */
+footer{background:var(--navy);color:#fff;text-align:center;padding:1rem}
+
+/* Alerts (Flask flash) */
+.alert{
+  max-width:var(--w); margin:1rem auto 0;
+  background:#eaf8ec; border:1px solid #2f7d32; color:#205723;
+  padding:.75rem 1rem; border-radius:10px;
+}
+
+/* .swiper {
+  width: 100%;
+  height: auto;
+  max-height: 680px;
+}
+
+.swiper-slide img {
+  object-fit: contain;
+  /* object-position: top; */
+  /* width: 100%; */
+  /* height: 80vh; */
+} */
+
+/* Animations */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{opacity:0;animation:fadeInUp .9s ease-out forwards}
+.fade-in-delay{opacity:0;animation:fadeInUp 1.2s ease-out forwards}
+
+/* Accessibility focus */
+a:focus,button:focus,.btn:focus,summary:focus{
+  outline:3px solid #99c2ff; outline-offset:3px; border-radius:10px;
+}
+
+/* Utilities */
+.bg-white{background:#fff!important}
+.bg-slate{background:var(--slate)!important}
+.bg-cream{background:var(--cream)!important}
+.bg-mint{background:var(--mint)!important}
+
+/* Responsive */
+@media (max-width: 720px){
+  .hero{padding:3.75rem 1rem}
+  .slides img{height:280px}
+}
+@media (max-width: 480px){
+  .slides img{height:240px}
+}
