@@ -81,7 +81,8 @@ class ContactForm(FlaskForm):
                 return False
 
             # optional hostname check:
-            expected = url_for('home')
+            expected = 'https://planelectricllc.com/'
+            print(f"Expected {expected}")
             if expected and verify_resp.get("hostname") not in (expected, "localhost", "127.0.0.1"):
                 self.turnstile_token.errors.append("Invalid captcha hostname.")
                 return False
