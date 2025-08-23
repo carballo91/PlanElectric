@@ -40,22 +40,41 @@
     <a href="{{ url_for('home') }}" class="logo">
       <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Plan Electric LLC Logo">
     </a>
+
     <h1>Plan Electric LLC</h1>
 
-    <nav>
-      <a class="{% if request.endpoint == 'home' %}active{% endif %}" 
-         href="{{ url_for('home') }}">Home</a>
-      <a class="{% if request.endpoint == 'about' %}active{% endif %}" 
-         href="{{ url_for('about') }}">About</a>
-      <a class="{% if request.endpoint == 'services' %}active{% endif %}" 
-         href="{{ url_for('services') }}">Services</a>
-      <a class="{% if request.endpoint == 'projects' %}active{% endif %}" 
-         href="{{ url_for('projects') }}">Projects</a>
-      <a class="{% if request.endpoint == 'contact' %}active{% endif %}" 
-         href="{{ url_for('contact') }}">Contact</a>
+    <!-- Mobile toggle -->
+    <button class="menu-toggle"
+            aria-label="Open menu"
+            aria-controls="mobile-nav"
+            aria-expanded="false">
+      <!-- simple hamburger -->
+      <span class="menu-toggle__bar"></span>
+      <span class="menu-toggle__bar"></span>
+      <span class="menu-toggle__bar"></span>
+    </button>
+
+    <!-- Desktop nav -->
+    <nav class="main-nav">
+      <a class="{% if request.endpoint == 'home' %}active{% endif %}" href="{{ url_for('home') }}">Home</a>
+      <a class="{% if request.endpoint == 'about' %}active{% endif %}" href="{{ url_for('about') }}">About</a>
+      <a class="{% if request.endpoint == 'services' %}active{% endif %}" href="{{ url_for('services') }}">Services</a>
+      <a class="{% if request.endpoint == 'projects' %}active{% endif %}" href="{{ url_for('projects') }}">Projects</a>
+      <a class="{% if request.endpoint == 'contact' %}active{% endif %}" href="{{ url_for('contact') }}">Contact</a>
     </nav>
   </div>
+
+  <!-- Mobile drawer + backdrop -->
+  <div class="backdrop" hidden></div>
+  <nav id="mobile-nav" class="mobile-drawer" aria-hidden="true">
+    <a class="{% if request.endpoint == 'home' %}active{% endif %}" href="{{ url_for('home') }}">Home</a>
+    <a class="{% if request.endpoint == 'about' %}active{% endif %}" href="{{ url_for('about') }}">About</a>
+    <a class="{% if request.endpoint == 'services' %}active{% endif %}" href="{{ url_for('services') }}">Services</a>
+    <a class="{% if request.endpoint == 'projects' %}active{% endif %}" href="{{ url_for('projects') }}">Projects</a>
+    <a class="{% if request.endpoint == 'contact' %}active{% endif %}" href="{{ url_for('contact') }}">Contact</a>
+  </nav>
 </header>
+
   <main>
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
@@ -69,5 +88,46 @@
   <footer>
     <p>&copy; 2025 Plan Electric LLC. All rights reserved.</p>
   </footer>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.menu-toggle');
+  const drawer = document.getElementById('mobile-nav');
+  const backdrop = document.querySelector('.backdrop');
+
+  function openMenu() {
+    drawer.classList.add('is-open');
+    backdrop.hidden = false;
+    requestAnimationFrame(() => backdrop.classList.add('is-open'));
+    toggle.setAttribute('aria-expanded', 'true');
+    drawer.setAttribute('aria-hidden', 'false');
+  }
+  function closeMenu() {
+    drawer.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    drawer.setAttribute('aria-hidden', 'true');
+    // hide backdrop after transition
+    setTimeout(() => { backdrop.hidden = true; }, 200);
+  }
+
+  toggle.addEventListener('click', () => {
+    const open = drawer.classList.contains('is-open');
+    open ? closeMenu() : openMenu();
+  });
+
+  backdrop.addEventListener('click', closeMenu);
+
+  // Close on ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeMenu();
+  });
+
+  // Close when a link is clicked
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+  });
+});
+</script>
+
 </body>
 </html>
