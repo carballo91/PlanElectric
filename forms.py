@@ -3,6 +3,7 @@ from wtforms import StringField, SelectField, TextAreaField, DateField, HiddenFi
 from wtforms.validators import DataRequired, Email, Optional, Length, Regexp
 import requests
 import os
+from flask import url_for
 
 
 class ContactForm(FlaskForm):
@@ -80,7 +81,7 @@ class ContactForm(FlaskForm):
                 return False
 
             # optional hostname check:
-            expected = 'localhost'
+            expected = url_for('home')
             if expected and verify_resp.get("hostname") not in (expected, "localhost", "127.0.0.1"):
                 self.turnstile_token.errors.append("Invalid captcha hostname.")
                 return False
