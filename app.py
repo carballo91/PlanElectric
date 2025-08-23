@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, Response
 from forms import ContactForm
 from dotenv import load_dotenv
 from flask_mail import Mail, Message
 import os
 from config import Config
+from datetime import datetime
 
 load_dotenv()
 
@@ -77,6 +78,53 @@ def contact():
 
 
     return render_template("contact.html", form=form)
+
+@app.route("/sitemap.xml", methods=["GET"])
+def sitemap():
+    """
+    Generates sitemap.xml for search engines.
+    """
+
+    # List of static routes: endpoint, changefreq, priority
+    static_pages = [
+        ("home",    "weekly",  "1.0"),
+        ("about",   "yearly",  "0.8"),
+        ("services","monthly", "0.9"),
+        ("projects","monthly", "0.8"),
+        ("contact", "yearly",  "0.7"),
+    ]
+
+    lastmod = datetime.utcnow().date().isoformat()
+    xml_parts = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+        'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
+        'xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 '
+        'http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">',
+    ]
+
+    for endpoint, changefreq, priority in static_pages:
+        loc = url_for(endpoint, _external=True)
+        xml_parts.append("  <url>")
+        xml_parts.append(f"    <loc>{loc}</loc>")
+        xml_parts.append(f"    <lastmod>{lastmod}</lastmod>")
+        xml_parts.append(f"    <changefreq>{changefreq}</changefreq>")
+        xml_parts.append(f"    <priority>{priority}</priority>")
+        xml_parts.append("  </url>")
+
+    xml_parts.append("</urlset>")
+    sitemap_xml = "\n".join(xml_parts)
+
+    return Response(sitemap_xml, mimetype="application/xml")
+
+@app.route("/robots.txt")
+def robots():
+    robots_txt = f"""User-agent: *
+Disallow:
+
+Sitemap: {url_for('sitemap', _external=True)}
+"""
+    return Response(robots_txt, mimetype="text/plain")
 
 if __name__ == '__main__':
     app.run(debug=True)
