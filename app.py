@@ -87,12 +87,13 @@ def sitemap():
 
     # List of static routes: endpoint, changefreq, priority
     static_pages = [
-        ("home",    "weekly",  "1.0"),
-        ("about",   "yearly",  "0.8"),
-        ("services","monthly", "0.9"),
-        ("projects","monthly", "0.8"),
-        ("contact", "yearly",  "0.7"),
+        ("home",     "weekly",  "1.0"),
+        ("about",    "yearly",  "0.7"),
+        ("services", "monthly", "0.9"),
+        ("projects", "monthly", "0.8"),
+        ("contact",  "yearly",  "0.8"),
     ]
+
 
     lastmod = datetime.utcnow().date().isoformat()
     xml_parts = [
