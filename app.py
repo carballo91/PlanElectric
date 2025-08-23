@@ -33,7 +33,7 @@ def projects():
 def contact():
     form = ContactForm()
     
-    print(os.getenv("MAIL_USERNAME"))
+    site_key = os.getenv("TURNSTILE_SITE_KEY")
 
     if form.validate_on_submit():
 
@@ -77,7 +77,7 @@ def contact():
             flash(f"Sorry, we couldn’t send your message right now. Please try again. {e}", "error")
 
 
-    return render_template("contact.html", form=form)
+    return render_template("contact.html", form=form,site_key=site_key)
 
 @app.route("/sitemap.xml", methods=["GET"])
 def sitemap():

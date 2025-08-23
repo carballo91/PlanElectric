@@ -84,7 +84,7 @@ class ContactForm(FlaskForm):
             expected = 'www.planelectricllc.com'
             print(f"Expected {expected}")
             print(verify_resp.get("hostname"))
-            if expected and verify_resp.get("hostname") not in (expected, "localhost", "127.0.0.1"):
+            if expected and verify_resp.get("hostname") not in (expected, "localhost", "127.0.0.1","planelectricllc.com"):
                 self.turnstile_token.errors.append("Invalid captcha hostname.")
                 return False
 
